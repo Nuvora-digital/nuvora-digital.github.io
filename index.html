@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Fotoshooting | Professionelle Bilder für deinen Social Media Auftritt</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #FFFDF9;
+    --blush: #E8C4B0;
+    --rose: #C4826A;
+    --deep: #2A1F1A;
+    --muted: #7A6A62;
+    --gold: #C9A96E;
+    --light-blush: #F5EBE5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--deep);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 1.2rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(196,130,106,0.15);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--rose);
+    letter-spacing: 0.02em;
+  }
+  .nav-cta {
+    background: var(--rose);
+    color: white;
+    border: none; border-radius: 50px;
+    padding: 0.6rem 1.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; font-weight: 500;
+    cursor: pointer; text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .nav-cta:hover { background: var(--deep); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 70vw; height: 70vw; max-width: 700px; max-height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,196,176,0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -10%; left: -5%;
+    width: 50vw; height: 50vw; max-width: 500px; max-height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--light-blush);
+    border: 1px solid var(--blush);
+    color: var(--rose);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    line-height: 1.15;
+    color: var(--deep);
+    margin-bottom: 1.5rem;
+  }
+  h1 em {
+    font-style: italic; color: var(--rose);
+  }
+
+  .hero-text {
+    font-size: 1.1rem; line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .price-tag {
+    display: flex; align-items: baseline; gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900; color: var(--deep);
+  }
+  .price-once { font-size: 1rem; color: var(--muted); }
+  .price-repeat {
+    font-size: 0.9rem; color: var(--rose);
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose);
+    color: white;
+    padding: 1.1rem 2.8rem;
+    border-radius: 50px;
+    font-size: 1.05rem; font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 30px rgba(196,130,106,0.35);
+  }
+  .btn-primary:hover {
+    background: var(--deep);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(42,31,26,0.25);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    border: 1.5px solid var(--blush);
+    color: var(--rose);
+    padding: 1rem 2.4rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+  }
+  .btn-secondary:hover {
+    background: var(--light-blush);
+  }
+
+  /* MOCKUP GRID */
+  .hero-visual {
+    position: relative;
+  }
+  .phone-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.6rem;
+  }
+  .photo-card {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    position: relative;
+  }
+  .photo-card:nth-child(2) { margin-top: 2rem; }
+  .photo-card:nth-child(3) { margin-top: -1rem; }
+
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-size: 2.5rem;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .photo-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, var(--color-a), var(--color-b));
+    opacity: 0.9;
+  }
+  .photo-placeholder span { position: relative; z-index: 1; }
+  .photo-placeholder small {
+    position: relative; z-index: 1;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem; color: rgba(255,255,255,0.8);
+    letter-spacing: 0.05em;
+  }
+
+  .c1 { --color-a: #C4826A; --color-b: #E8C4B0; }
+  .c2 { --color-a: #2A1F1A; --color-b: #7A6A62; }
+  .c3 { --color-a: #C9A96E; --color-b: #E8D4B0; }
+  .c4 { --color-a: #E8C4B0; --color-b: #C4826A; }
+  .c5 { --color-a: #7A6A62; --color-b: #2A1F1A; }
+  .c6 { --color-a: #E8D4B0; --color-b: #C9A96E; }
+
+  .like-badge {
+    position: absolute; top: -1rem; right: -1rem;
+    background: white;
+    border-radius: 50px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem; font-weight: 500;
+    color: var(--deep);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex; align-items: center; gap: 0.3rem;
+  }
+
+  /* SECTION: HOW IT WORKS */
+  section { padding: 5rem 2rem; }
+
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.78rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    font-weight: 500; margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    font-size: 1.05rem; color: var(--muted);
+    line-height: 1.8; max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  .steps {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  }
+  .step {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(196,130,106,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(196,130,106,0.15);
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900;
+    color: var(--blush);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; margin-bottom: 0.7rem;
+  }
+  .step p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+  /* WHAT YOU GET */
+  .what-you-get { background: var(--deep); color: var(--cream); }
+  .what-you-get h2 { color: var(--cream); }
+  .what-you-get .section-label { color: var(--gold); }
+  .what-you-get .subtitle { color: rgba(250,247,242,0.6); }
+
+  .benefits-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  }
+  .benefit {
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    background: rgba(250,247,242,0.04);
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 16px; padding: 1.5rem;
+    transition: background 0.3s ease;
+  }
+  .benefit:hover { background: rgba(250,247,242,0.08); }
+  .benefit-icon {
+    font-size: 1.8rem; flex-shrink: 0;
+    width: 3rem; height: 3rem;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(201,169,110,0.1);
+    border-radius: 12px;
+  }
+  .benefit h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; margin-bottom: 0.4rem;
+    color: var(--cream);
+  }
+  .benefit p { font-size: 0.88rem; color: rgba(250,247,242,0.55); line-height: 1.65; }
+
+  /* FOR WHO */
+  .for-who { background: var(--light-blush); }
+
+  .target-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+  }
+  .target-card {
+    background: white;
+    border-radius: 16px; padding: 1.8rem 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(196,130,106,0.12);
+    transition: all 0.3s ease;
+  }
+  .target-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(196,130,106,0.15);
+  }
+  .target-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .target-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; margin-bottom: 0.5rem;
+  }
+  .target-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  /* PRICING */
+  .pricing-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    max-width: 700px; margin: 0 auto;
+  }
+  .pricing-card {
+    border-radius: 24px; padding: 2.5rem 2rem;
+    position: relative; overflow: hidden;
+  }
+  .pricing-card.starter {
+    background: var(--warm-white);
+    border: 1.5px solid var(--blush);
+  }
+  .pricing-card.regular {
+    background: var(--deep);
+    color: var(--cream);
+  }
+  .pricing-card .badge {
+    display: inline-block;
+    font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 600;
+    padding: 0.35rem 1rem; border-radius: 50px;
+    margin-bottom: 1.5rem;
+  }
+  .starter .badge { background: var(--light-blush); color: var(--rose); }
+  .regular .badge { background: rgba(201,169,110,0.2); color: var(--gold); }
+
+  .pricing-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem; font-weight: 900; line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .pricing-unit { font-size: 0.9rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .regular .pricing-unit { color: rgba(250,247,242,0.5); }
+
+  .pricing-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.7rem;
+    margin-bottom: 2rem;
+  }
+  .pricing-list li {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.9rem; color: var(--muted);
+  }
+  .regular .pricing-list li { color: rgba(250,247,242,0.7); }
+  .pricing-list li::before { content: '✓'; color: var(--rose); font-weight: 700; }
+  .regular .pricing-list li::before { color: var(--gold); }
+
+  .btn-card {
+    display: block; width: 100%;
+    padding: 1rem; border-radius: 50px;
+    text-align: center; text-decoration: none;
+    font-weight: 500; font-size: 0.95rem;
+    transition: all 0.3s ease;
+    cursor: pointer; border: none;
+  }
+  .starter .btn-card {
+    background: var(--rose); color: white;
+    box-shadow: 0 6px 20px rgba(196,130,106,0.3);
+  }
+  .starter .btn-card:hover { background: var(--deep); }
+  .regular .btn-card {
+    background: var(--gold); color: var(--deep);
+  }
+  .regular .btn-card:hover { background: white; }
+
+  /* FREEBIE */
+  .freebie-section { background: var(--warm-white); }
+  .freebie-box {
+    background: linear-gradient(135deg, var(--rose), var(--deep));
+    border-radius: 28px; padding: 3rem;
+    color: white; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .freebie-box::before {
+    content: '✨';
+    position: absolute; font-size: 8rem;
+    top: -2rem; right: -1rem;
+    opacity: 0.08;
+  }
+  .freebie-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; margin-bottom: 1rem;
+  }
+  .freebie-box p { font-size: 1rem; opacity: 0.85; line-height: 1.7; max-width: 500px; margin: 0 auto 2rem; }
+  .btn-freebie {
+    display: inline-block;
+    background: white; color: var(--rose);
+    padding: 1rem 2.5rem; border-radius: 50px;
+    font-weight: 600; text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+  .btn-freebie:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
+
+  /* TESTIMONIAL PLACEHOLDER */
+  .trust-section { text-align: center; }
+  .trust-badges {
+    display: flex; justify-content: center; flex-wrap: wrap;
+    gap: 2rem; margin-top: 2rem;
+  }
+  .trust-badge {
+    display: flex; align-items: center; gap: 0.6rem;
+    background: var(--warm-white);
+    border: 1px solid var(--blush);
+    border-radius: 50px;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.88rem; color: var(--deep);
+  }
+
+  /* LEGAL SECTION */
+  .legal-section {
+    background: #1A1310;
+    color: rgba(250,247,242,0.7);
+    padding: 4rem 2rem 2rem;
+  }
+  .legal-inner { max-width: 900px; margin: 0 auto; }
+  .legal-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--cream); font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .legal-intro {
+    font-size: 0.9rem; opacity: 0.6;
+    margin-bottom: 2.5rem; line-height: 1.6;
+  }
+  .legal-block {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 16px; padding: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .legal-block h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold); font-size: 1rem;
+    margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .legal-block p {
+    font-size: 0.87rem; line-height: 1.75;
+    color: rgba(250,247,242,0.6);
+  }
+  .legal-block p + p { margin-top: 0.6rem; }
+
+  .consent-box {
+    background: rgba(201,169,110,0.08);
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: rgba(250,247,242,0.75);
+    line-height: 1.7;
+  }
+  .consent-box strong { color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: #110D0B;
+    color: rgba(250,247,242,0.4);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.82rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .target-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-cards { grid-template-columns: 1fr; }
+    .btn-secondary { margin-left: 0; margin-top: 1rem; display: block; text-align: center; }
+  }
+  @media (max-width: 500px) {
+    .target-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * {
+    animation: fadeUp 0.7s ease forwards;
+    opacity: 0;
+  }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.5s; }
+  .hero-content > *:nth-child(5) { animation-delay: 0.6s; }
+  .hero-content > *:nth-child(6) { animation-delay: 0.7s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">✦ KI-Fotoshooting</div>
+  <a href="#kaufen" class="nav-cta">Jetzt bestellen →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">✦ Professionell · Schnell · Erschwinglich</div>
+      <h1>Dein <em>professioneller</em> Social-Media-Auftritt – ohne Fotostudio</h1>
+      <p class="hero-text">Du schickst mir ein Foto von dir – ich erstelle 15 professionelle Bilder mit KI, die dein Business auf Instagram, Facebook & Co. zum Leuchten bringen.</p>
+      <div class="price-tag">
+        <span class="price-main">49 €</span>
+        <span class="price-once">einmalig</span>
+      </div>
+      <div class="price-repeat">Als Stammkundin nur 27 € ab dem 2. Auftrag 🌸</div>
+      <div>
+        <a href="#kaufen" class="btn-primary">Jetzt 15 Bilder sichern</a>
+        <a href="#freebie" class="btn-secondary">Gratis Guide ↓</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="phone-grid">
+        <div class="photo-card c1"><div class="photo-placeholder"><span>📸</span><small>Frühling</small></div></div>
+        <div class="photo-card c2"><div class="photo-placeholder"><span>🌸</span><small>Portrait</small></div></div>
+        <div class="photo-card c3"><div class="photo-placeholder"><span>💅</span><small>Business</small></div></div>
+        <div class="photo-card c4"><div class="photo-placeholder"><span>🎄</span><small>Weihnacht</small></div></div>
+        <div class="photo-card c5"><div class="photo-placeholder"><span>🌞</span><small>Sommer</small></div></div>
+        <div class="photo-card c6" style="position:relative;"><div class="photo-placeholder"><span>🐣</span><small>Ostern</small></div><div class="like-badge">❤️ 847 Likes</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">So einfach geht's</div>
+    <h2>3 Schritte zu deinen Traumfotos</h2>
+    <p class="subtitle">Kein Fotostudio, keine Kamera, keine Vorkenntnisse nötig. Nur du, ein Foto – und ich erledige den Rest.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Foto schicken</h3>
+        <p>Sende mir ein aktuelles Foto von dir – auch ein einfaches Handyfoto reicht. Dazu gibst du mir dein gewünschtes Thema oder den Anlass an.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Ich zaubere deine Bilder</h3>
+        <p>Mit professionellen KI-Tools erstelle ich 15 hochwertige Bilder von dir – angepasst an dein Business und deine Wunsch-Ästhetik.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Download & posten</h3>
+        <p>Innerhalb von 48–72 Stunden erhältst du deine fertigen Bilder zum Herunterladen. Einfach posten und begeistern!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="what-you-get">
+  <div class="section-inner">
+    <div class="section-label">Was du bekommst</div>
+    <h2>Alles was du für deinen Traumauftritt brauchst</h2>
+    <p class="subtitle">15 professionelle Bilder, perfekt abgestimmt für deinen Social-Media-Kanal.</p>
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon">🖼️</div>
+        <div>
+          <h4>15 hochwertige Bilder</h4>
+          <p>Professionell bearbeitet, in hoher Auflösung – bereit zum Posten auf Instagram, Facebook, Pinterest & Co.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🎨</div>
+        <div>
+          <h4>Thema nach Wahl</h4>
+          <p>Sommer, Ostern, Weihnachten, Business-Look oder einfach zeitlos schön – du bestimmst den Stil.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">⚡</div>
+        <div>
+          <h4>Lieferung in 48–72 Std.</h4>
+          <p>Kein wochenlanger Vorlauf wie beim echten Fotoshooting. Du bekommst deine Bilder schnell und unkompliziert.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🔒</div>
+        <div>
+          <h4>100 % sicher & diskret</h4>
+          <p>Dein Originalfoto wird nur zur Erstellung genutzt und anschließend sicher gelöscht. Keine Weitergabe an Dritte.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">💼</div>
+        <div>
+          <h4>Business-gerecht</h4>
+          <p>Speziell für Selbständige in der Beauty-, Wellness- und Dienstleistungsbranche optimiert.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🌸</div>
+        <div>
+          <h4>Stammkunden-Vorteil</h4>
+          <p>Jedes weitere Shooting kostet nur noch 27 € – ideal für saisonale Inhalte das ganze Jahr über.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="for-who">
+  <div class="section-inner">
+    <div class="section-label">Perfekt für dich wenn du...</div>
+    <h2>Das ist für dich gemacht</h2>
+    <p class="subtitle">Du führst ein kleines Business und weißt: gute Fotos sind wichtig – aber du hast weder Zeit noch Lust, dich damit zu beschäftigen.</p>
+    <div class="target-grid">
+      <div class="target-card">
+        <div class="target-icon">💅</div>
+        <h4>Nagelstudio</h4>
+        <p>Zeige dich als Expertin, nicht nur deine Arbeit. Professionelle Portraits stärken dein Vertrauen.</p>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">✂️</div>
+        <h4>Friseursalon</h4>
+        <p>Ein konsistenter Look auf Social Media zieht neue Kundinnen an – und hält bestehende begeistert.</p>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">🧴</div>
+        <h4>Kosmetikstudio</h4>
+        <p>Strahlende Bilder für Hautpflege-Tipps, Behandlungsangebote und saisonale Aktionen.</p>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">💪</div>
+        <h4>Personal Trainer</h4>
+        <p>Motivierende Portraits für dein Coaching-Business und Beiträge, die deine Persönlichkeit zeigen.</p>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">🌿</div>
+        <h4>Therapeutin / Coach</h4>
+        <p>Professionelle, warme Fotos die Vertrauen wecken und deine Expertise unterstreichen.</p>
+      </div>
+      <div class="target-card">
+        <div class="target-icon">🏡</div>
+        <h4>Weitere Selbständige</h4>
+        <p>Egal welches Business – wer sich zeigt, gewinnt. Deine Persönlichkeit ist dein stärkstes Werkzeug.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="kaufen">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label">Preise</div>
+    <h2>Transparent & fair</h2>
+    <p class="subtitle" style="margin: 0 auto 3rem;">Einmal buchen, begeistert sein – und als Stammkundin immer günstiger wieder kommen.</p>
+    <div class="pricing-cards">
+      <div class="pricing-card starter">
+        <span class="badge">Erstauftrag</span>
+        <div class="pricing-price">49 €</div>
+        <div class="pricing-unit">einmalige Zahlung</div>
+        <ul class="pricing-list">
+          <li>15 professionelle KI-Bilder</li>
+          <li>Thema nach deiner Wahl</li>
+          <li>Lieferung in 48–72 Std.</li>
+          <li>Hochauflösende Dateien</li>
+          <li>Sichere Datenverarbeitung</li>
+        </ul>
+        <a href="https://tentary.com" target="_blank" class="btn-card">Jetzt kaufen →</a>
+      </div>
+      <div class="pricing-card regular">
+        <span class="badge">⭐ Stammkunde</span>
+        <div class="pricing-price" style="color:var(--gold)">27 €</div>
+        <div class="pricing-unit">pro weiteres Shooting</div>
+        <ul class="pricing-list">
+          <li>Alles aus dem Erstpaket</li>
+          <li>Saisonale Themen möglich</li>
+          <li>Priority-Bearbeitung</li>
+          <li>Ganzjährig buchbar</li>
+          <li>Exklusiver Stammkunden-Preis</li>
+        </ul>
+        <a href="https://tentary.com" target="_blank" class="btn-card">Als Stammkunde buchen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="section-inner">
+    <div class="section-label">Vertrauen & Sicherheit</div>
+    <h2>Du bist bei mir in guten Händen</h2>
+    <div class="trust-badges">
+      <div class="trust-badge">🔒 Deine Daten sind sicher</div>
+      <div class="trust-badge">🗑️ Foto wird nach Erstellung gelöscht</div>
+      <div class="trust-badge">🇩🇪 DSGVO-konform</div>
+      <div class="trust-badge">📬 Lieferung in 48–72 Std.</div>
+      <div class="trust-badge">💬 Persönlicher Kontakt</div>
+    </div>
+  </div>
+</section>
+
+<!-- FREEBIE -->
+<section class="freebie-section" id="freebie">
+  <div class="section-inner">
+    <div class="freebie-box">
+      <h3>🎁 Gratis für dich: Der Social-Media-Starterguide</h3>
+      <p>Hol dir meinen kostenlosen Guide mit den 5 wichtigsten Tipps für einen professionellen Social-Media-Auftritt – speziell für Selbständige in der Beauty- & Wellness-Branche.</p>
+      <a href="#freebie-content" class="btn-freebie">Gratis Guide herunterladen ↓</a>
+    </div>
+
+    <!-- FREEBIE CONTENT -->
+    <div id="freebie-content" style="margin-top:3rem; background: var(--warm-white); border-radius: 24px; padding: 3rem; border: 1px solid var(--blush);">
+      <div class="section-label">Dein Gratis-Guide</div>
+      <h2 style="margin-bottom:2rem;">5 Geheimnisse für einen strahlenden Social-Media-Auftritt</h2>
+
+      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+        <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+          <div style="font-size:1.8rem; min-width:3rem; text-align:center;">1️⃣</div>
+          <div>
+            <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.4rem;">Zeige dich – nicht nur deine Arbeit</h4>
+            <p style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Menschen kaufen von Menschen. Wer regelmäßig sein Gesicht zeigt, baut Vertrauen auf. Das ist der wichtigste Faktor für treue Kundinnen auf Social Media.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+          <div style="font-size:1.8rem; min-width:3rem; text-align:center;">2️⃣</div>
+          <div>
+            <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.4rem;">Konsistenz schlägt Perfektion</h4>
+            <p style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Lieber 3x pro Woche ein einfaches Bild als einmal im Monat ein perfektes. Regelmäßigkeit belohnt der Algorithmus – und deine Followerinnen.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+          <div style="font-size:1.8rem; min-width:3rem; text-align:center;">3️⃣</div>
+          <div>
+            <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.4rem;">Plane saisonal voraus</h4>
+            <p style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Weihnachten, Ostern, Sommer, Valentinstag – plane deine Bilder 2–3 Wochen im Voraus. So bist du immer aktuell und wirkst professionell.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+          <div style="font-size:1.8rem; min-width:3rem; text-align:center;">4️⃣</div>
+          <div>
+            <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.4rem;">Nutze Bilder mehrfach</h4>
+            <p style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Ein professionelles Bild kann als Post, Story, Highlight-Cover und sogar in deiner Bio genutzt werden. 15 Bilder = monatelanger Content!</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+          <div style="font-size:1.8rem; min-width:3rem; text-align:center;">5️⃣</div>
+          <div>
+            <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.4rem;">Qualität macht den Unterschied</h4>
+            <p style="color:var(--muted); font-size:0.95rem; line-height:1.7;">Verwackelte Handy-Selfies performen schlechter als professionelle Portraits. Ein hochwertiges Profilbild allein kann deine Anfragen verdoppeln.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:2.5rem;">
+        <p style="color:var(--muted); margin-bottom:1.2rem; font-size:0.95rem;">Bereit für deinen professionellen Auftritt?</p>
+        <a href="#kaufen" class="btn-primary">Jetzt 15 Bilder sichern – nur 49 €</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL / VEREINBARUNG -->
+<section class="legal-section" id="vereinbarung">
+  <div class="legal-inner">
+    <div class="section-label" style="color:var(--gold);">Rechtliches</div>
+    <h2>Nutzungsvereinbarung & Datenschutz</h2>
+    <p class="legal-intro">Mit deiner Bestellung stimmst du den folgenden Bedingungen zu. Diese Vereinbarung schützt sowohl dich als auch mich und sorgt für eine transparente Zusammenarbeit.</p>
+
+    <div class="legal-block">
+      <h4>§ 1 – Vertragsgegenstand</h4>
+      <p>Gegenstand dieser Vereinbarung ist die Erstellung von 15 digitalen Bildnissen mittels Künstlicher Intelligenz (KI) auf Basis eines vom Auftraggeber (Kunden) bereitgestellten Referenzfotos. Die Erstellung erfolgt durch die Auftragnehmerin (Anbieterin) im Auftrag und für Rechnung des Auftraggebers.</p>
+    </div>
+
+    <div class="legal-block">
+      <h4>§ 2 – Zweckbindung der übermittelten Bilddaten</h4>
+      <p>Das vom Kunden übermittelte Originalfoto (Referenzfoto) wird <strong style="color:var(--gold)">ausschließlich</strong> zum Zweck der KI-gestützten Bildgenerierung verwendet. Eine Nutzung für andere Zwecke, insbesondere für Werbung, Marketing, Vorschaubilder, Portfolios oder sonstige Präsentationen, findet ohne ausdrückliche schriftliche Zustimmung des Kunden nicht statt.</p>
+      <p>Die Anbieterin verpflichtet sich, das Referenzfoto nach vollständiger Lieferung der erstellten Bilder und spätestens 30 Tage nach Auftragserfüllung unwiderruflich zu löschen. Auf Wunsch wird die Löschung unverzüglich nach Lieferung vorgenommen.</p>
+    </div>
+
+    <div class="legal-block">
+      <h4>§ 3 – Keine Weitergabe an Dritte</h4>
+      <p>Das übermittelte Originalfoto sowie alle im Rahmen der Auftragserfüllung anfallenden personenbezogenen Daten werden nicht an Dritte weitergegeben, verkauft oder in sonstiger Weise übermittelt. Dies gilt auch für etwaige KI-Anbieter, sofern diese das Bildmaterial nicht zur eigenen Modellverbesserung nutzen.</p>
+      <p>Sollten für die Bildgenerierung Drittanbieter-Dienste eingesetzt werden, werden diese sorgfältig ausgewählt. Die Anbieterin stellt sicher, dass diese Dienste ebenfalls keine Nutzung der Bilder für Training oder Werbezwecke vornehmen, soweit dies vertraglich durchsetzbar ist.</p>
+    </div>
+
+    <div class="legal-block">
+      <h4>§ 4 – Rechtsgrundlage der Datenverarbeitung (DSGVO)</h4>
+      <p>Die Verarbeitung personenbezogener Daten (insbesondere biometrischer Daten gemäß Art. 9 DSGVO bei Bildnissen) erfolgt auf Grundlage der ausdrücklichen Einwilligung des Betroffenen gemäß <strong style="color:var(--gold)">Art. 6 Abs. 1 lit. a DSGVO</strong> sowie gemäß <strong style="color:var(--gold)">Art. 9 Abs. 2 lit. a DSGVO</strong>.</p>
+      <p>Mit Bestellung und Übersendung des Referenzfotos erteilt der Kunde diese Einwilligung ausdrücklich und dokumentiert. Die Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden. Im Falle eines Widerrufs werden alle vorhandenen Bilddaten unverzüglich gelöscht.</p>
+    </div>
+
+    <div class="legal-block">
+      <h4>§ 5 – Recht am eigenen Bild & Persönlichkeitsrechte</h4>
+      <p>Der Kunde bestätigt mit der Übersendung seines Referenzfotos, dass er berechtigt ist, dieses für den genannten Zweck zu verwenden und dass keine Rechte Dritter (z. B. Fotograf*innen, abgebildete weitere Personen) entgegenstehen. Bei Fotos, die Dritte zeigen oder urheberrechtlich geschützt sind, haftet der Kunde selbst.</p>
+      <p>Die erstellten KI-Bilder werden ausschließlich für den Auftraggeber erstellt und dürfen von diesem für seinen eigenen Social-Media-Auftritt genutzt werden.</p>
+    </div>
+
+    <div class="legal-block">
+      <h4>§ 6 – Nutzungsrechte an den erstellten KI-Bildern</h4>
+      <p>Der Kunde erhält an den erstellten 15 Bildern ein einfaches, nicht übertragbares Nutzungsrecht für den eigenen gewerblichen Social-Media-Auftritt. Eine Weiterveräußerung, Weiterlizenzierung oder kommerzielle Verwertung der Bilder durch Dritte ist ohne gesonderte Vereinbarung nicht gestattet.</p>
+    </div>
+
+    <div class="legal-block">
+      <h4>§ 7 – Widerrufsrecht (Fernabsatzrecht)</h4>
+      <p>Da es sich um eine digitale Dienstleistung handelt, die nach Beauftragung sofort begonnen wird, erlischt das gesetzliche Widerrufsrecht gemäß § 356 Abs. 5 BGB mit Beginn der Leistungserfüllung, sofern der Kunde ausdrücklich zugestimmt hat, dass mit der Ausführung vor Ablauf der Widerrufsfrist begonnen wird und er zur Kenntnis genommen hat, dass er dadurch sein Widerrufsrecht verliert. Diese Zustimmung erfolgt mit der Bestellung.</p>
+    </div>
+
+    <div class="legal-block">
+      <h4>§ 8 – Betroffenenrechte nach DSGVO</h4>
+      <p>Der Kunde hat jederzeit das Recht auf: Auskunft über gespeicherte Daten (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie Widerspruch (Art. 21). Beschwerden können bei der zuständigen Datenschutzaufsichtsbehörde eingereicht werden.</p>
+    </div>
+
+    <div class="consent-box">
+      <strong>✅ Einwilligungserklärung (wird mit Bestellung bestätigt)</strong><br><br>
+      „Ich bin damit einverstanden, dass das von mir übermittelte Foto ausschließlich zur KI-gestützten Erstellung meiner bestellten Bilder verwendet wird. Ich bestätige, dass ich Inhaber der erforderlichen Rechte an dem übermittelten Foto bin. Ich wurde darüber informiert, dass meine Daten nach Auftragserfüllung gelöscht werden und nicht an Dritte weitergegeben werden. Ich habe die Nutzungsvereinbarung gelesen und stimme ihr zu."
+    </div>
+
+    <p style="font-size:0.8rem; opacity:0.4; margin-top:2rem; line-height:1.6;">Stand: 2025 | Diese Vereinbarung wurde nach bestem Wissen erstellt, ersetzt jedoch keine individuelle Rechtsberatung. Es wird empfohlen, die Vereinbarung durch eine Rechtsanwältin oder einen Rechtsanwalt prüfen zu lassen.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 KI-Fotoshooting · Alle Rechte vorbehalten · <a href="#vereinbarung">Nutzungsbedingungen & Datenschutz</a></p>
+  <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.6;">Erstellt mit ♥ für Selbständige · DSGVO-konform · Made in Germany</p>
+</footer>
+
+</body>
+</html>
